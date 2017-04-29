@@ -7,6 +7,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {JitCompiler} from '@angular/compiler';
 
+@Injectable()
+export class MyClass {
+  constructor(config: Config) {
+  }
+}
+
+export class Config {
+}
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,12 +27,13 @@ import {JitCompiler} from '@angular/compiler';
     HttpModule,
   ],
   providers: [
-    Location,
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    MyClass,
+    Config
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(compiler: Compiler) {
+  constructor(obj: MyClass) {
+    console.log(!!obj);
   }
 }

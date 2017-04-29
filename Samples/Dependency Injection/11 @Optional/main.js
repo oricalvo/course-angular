@@ -13,6 +13,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var Config = (function () {
+    function Config() {
+    }
+    return Config;
+}());
 var MyService = (function () {
     function MyService(config) {
         console.log(!!config);
@@ -21,16 +26,11 @@ var MyService = (function () {
 }());
 MyService = __decorate([
     core_1.Injectable(),
-    __param(0, core_1.Inject(core_1.forwardRef(function () { return Config; }))),
+    __param(0, core_1.Optional()),
     __metadata("design:paramtypes", [Config])
 ], MyService);
-var Config = (function () {
-    function Config() {
-    }
-    return Config;
-}());
 var injector = core_1.ReflectiveInjector.resolveAndCreate([
-    Config,
+    //Config,
     MyService,
 ]);
 var obj = injector.get(MyService);
