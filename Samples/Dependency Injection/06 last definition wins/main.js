@@ -5,22 +5,21 @@ var MyClass1 = (function () {
     function MyClass1() {
     }
     MyClass1.prototype.dump = function () {
-        console.log("xxx");
+        console.log("class1");
     };
     return MyClass1;
 }());
 var MyClass2 = (function () {
-    function MyClass2(obj1) {
+    function MyClass2() {
     }
     MyClass2.prototype.dump = function () {
-        console.log("yyy");
+        console.log("class2");
     };
     return MyClass2;
 }());
-MyClass2.parameters = [MyClass1];
 var injector = core_1.ReflectiveInjector.resolveAndCreate([
-    MyClass1,
-    MyClass2,
+    { provide: "myService", useClass: MyClass1 },
+    { provide: "myService", useClass: MyClass2 },
 ]);
-var obj2 = injector.get(MyClass2);
-obj2.dump();
+var obj = injector.get("myService");
+console.log(obj instanceof MyClass2);
