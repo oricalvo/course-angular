@@ -2,17 +2,15 @@ import {Injectable, InjectionToken, ReflectiveInjector, Compiler, Optional, forw
 
 @Injectable()
 class MyService {
-    constructor(@Inject(forwardRef(() => Config)) config: Config) {
-        console.log(!!config);
+    constructor() {
+        console.log("MyService");
     }
 }
 
-class Config {
-}
-
 const injector = ReflectiveInjector.resolveAndCreate([
-    Config,
-    MyService,
+    {provide: MyService, useClass: MyService, multi: true},
+    {provide: MyService, useClass: MyService, multi: true},
 ]);
 
 const obj = injector.get(MyService);
+console.log(obj);
