@@ -5,15 +5,8 @@ cli.command("dev", dev);
 cli.run();
 
 async function dev() {
-    await compileTS();
     await runServer();
     await runBrowser();
-}
-
-async function compileTS() {
-    //
-    //  TS is already compiled by bu
-    //
 }
 
 async function runServer() {
@@ -23,4 +16,3 @@ async function runServer() {
 async function runBrowser() {
     process.open("http://localhost:8080/index.html");
 }
-

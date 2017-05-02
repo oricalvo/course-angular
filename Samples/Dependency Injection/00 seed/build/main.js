@@ -43,24 +43,14 @@ function dev() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, compileTS()];
+                case 0: return [4 /*yield*/, runServer()];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, runServer()];
-                case 2:
-                    _a.sent();
                     return [4 /*yield*/, runBrowser()];
-                case 3:
+                case 2:
                     _a.sent();
                     return [2 /*return*/];
             }
-        });
-    });
-}
-function compileTS() {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            return [2 /*return*/];
         });
     });
 }

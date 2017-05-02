@@ -14,28 +14,28 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var MyService1 = (function () {
-    function MyService1(s) {
-        console.log("MyService");
+    function MyService1() {
     }
     return MyService1;
 }());
 MyService1 = __decorate([
-    core_1.Injectable(),
-    __param(0, core_1.Inject(core_1.forwardRef(function () { return MyService2; }))),
-    __metadata("design:paramtypes", [MyService2])
+    core_1.Injectable()
 ], MyService1);
 var MyService2 = (function () {
-    function MyService2(s) {
+    function MyService2(service1) {
+        this.service1 = service1;
     }
     return MyService2;
 }());
 MyService2 = __decorate([
     core_1.Injectable(),
+    __param(0, core_1.SkipSelf()),
     __metadata("design:paramtypes", [MyService1])
 ], MyService2);
 var injector = core_1.ReflectiveInjector.resolveAndCreate([
     MyService1,
-    MyService2,
 ]);
-var obj = injector.get(MyService1);
-console.log(obj);
+var child = injector.resolveAndCreateChild([MyService1, MyService2]);
+var service2 = child.get(MyService2);
+var service1 = child.get(MyService1);
+console.log(service1 == service2.service1);
