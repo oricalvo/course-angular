@@ -1,2 +1,7 @@
 APP_INITIALIZER
 APP_BOOTSTRAP_LISTENER
+destoryPlatform
+_platform is global - Only one platform at runtime
+import { ɵgetDOM as getDOM} from '@angular/platform-browser'
+isDevMode
+ngDoBootstrap method inside AppModule
