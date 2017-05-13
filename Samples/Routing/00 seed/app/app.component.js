@@ -11,23 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var about_component_1 = require("./about.component");
 var AppComponent = (function () {
     function AppComponent(router) {
-        setTimeout(function () {
-            router.config.push({
-                path: 'about',
-                component: about_component_1.AboutComponent,
-            });
-            // routes.push(
-            //     {
-            //         path: 'about',
-            //         component: AboutComponent,
-            //     });
-            //
-            // router.resetConfig(routes);
-            console.log("xxx");
-        }, 3000);
     }
     return AppComponent;
 }());

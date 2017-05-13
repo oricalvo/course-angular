@@ -5,13 +5,16 @@ import {RouterModule} from "@angular/router";
 import {routes} from "./routes";
 import {HomeComponent} from "./home.component";
 import {AboutComponent} from "./about.component";
+import {ContactComponent, ContactComponentGuard} from "./contact.component";
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule.forRoot(routes)
     ],
-    providers: [],
+    providers: [
+        ContactComponentGuard,
+    ],
     bootstrap: [
         AppComponent,
     ],
@@ -19,6 +22,7 @@ import {AboutComponent} from "./about.component";
         AppComponent,
         HomeComponent,
         AboutComponent,
+        ContactComponent,
     ]
 })
 export class AppModule {

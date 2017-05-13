@@ -10,7 +10,7 @@ async function dev() {
 }
 
 async function runServer() {
-    process.exec("node_modules/.bin/http-server");
+    process.exec("node server/main.js");
 }
 
 async function runBrowser() {

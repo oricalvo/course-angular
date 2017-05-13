@@ -11,22 +11,5 @@ import {AboutComponent} from "./about.component";
 })
 export class AppComponent {
     constructor(router: Router) {
-
-        setTimeout(function () {
-            router.config.push(                {
-                path: 'about',
-                component: AboutComponent,
-            });
-
-            // routes.push(
-            //     {
-            //         path: 'about',
-            //         component: AboutComponent,
-            //     });
-            //
-            // router.resetConfig(routes);
-
-            console.log("xxx");
-        }, 3000);
     }
 }

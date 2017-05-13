@@ -99,9 +99,9 @@ brace-expansion@^1.0.0:
     balanced-match "^0.4.1"
     concat-map "0.0.1"
 
-build-utils@^1.0.39:
-  version "1.0.39"
-  resolved "https://registry.yarnpkg.com/build-utils/-/build-utils-1.0.39.tgz#e314bc0c47a86d5b378a49f248ef1ee6338d4e58"
+build-utils@^1.0.44:
+  version "1.0.44"
+  resolved "https://registry.yarnpkg.com/build-utils/-/build-utils-1.0.44.tgz#d1f3b9f8f9ec5853edf64edfe9158e26b5a8a614"
   dependencies:
     bluebird "^3.4.7"
     deep-assign "^2.0.0"
@@ -173,15 +173,9 @@ debug@2.6.1:
   dependencies:
     ms "0.7.2"
 
-debug@2.6.4:
+debug@2.6.4, debug@^2.4.5:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.4.tgz#7586a9b3c39741c0282ae33445c4e8ac74734fe0"
-  dependencies:
-    ms "0.7.3"
-
-debug@^2.4.5:
-  version "2.6.6"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.6.tgz#a9fa6fbe9ca43cf1e79f73b75c0189cbb7d6db5a"
   dependencies:
     ms "0.7.3"
 

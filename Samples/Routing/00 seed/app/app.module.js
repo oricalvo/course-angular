@@ -13,6 +13,7 @@ var router_1 = require("@angular/router");
 var routes_1 = require("./routes");
 var home_component_1 = require("./home.component");
 var about_component_1 = require("./about.component");
+var contact_component_1 = require("./contact.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +25,9 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             router_1.RouterModule.forRoot(routes_1.routes)
         ],
-        providers: [],
+        providers: [
+            contact_component_1.ContactComponentGuard,
+        ],
         bootstrap: [
             app_component_1.AppComponent,
         ],
@@ -32,6 +35,7 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             home_component_1.HomeComponent,
             about_component_1.AboutComponent,
+            contact_component_1.ContactComponent,
         ]
     })
 ], AppModule);

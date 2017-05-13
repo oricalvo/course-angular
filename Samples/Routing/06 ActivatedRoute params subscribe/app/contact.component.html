@@ -1,0 +1,5 @@
+<h1>Contact Details {{name | async}}</h1>
+
+<a [routerLink]="['/contact', 2]">Goto Parent</a>
+
+<button (click)="toggleMore()">{{showMoreCaption | async}}</button>

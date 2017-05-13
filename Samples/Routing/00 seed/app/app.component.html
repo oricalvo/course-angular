@@ -1,8 +1,14 @@
 <h1>Hello AngularJS</h1>
 
 <div class="site-menu">
-    <a routerLink="">Home</a>
-    <a routerLink="about">About</a>
+    <a routerLink="" routerLinkActive="x" queryParamsHandling="preserve">Home</a>
+
+    <a [routerLink]="['/about', {id: 2}]"
+       [queryParams]="{id: 1}"
+       fragment="123"
+       routerLinkActive="y">About</a>
+
+    <a [routerLink]="['contact', 1]">Contact</a>
 </div>
 
 <router-outlet></router-outlet>
