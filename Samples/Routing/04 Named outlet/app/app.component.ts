@@ -10,6 +10,27 @@ import {AboutComponent} from "./about.component";
     moduleId: module.id,
 })
 export class AppComponent {
-    constructor(router: Router) {
+    constructor(private router: Router) {
+    }
+
+    gotoAbout() {
+this.router.navigate([
+    '/about',
+    1,
+    {name: 'xxx'},
+    {
+        outlets: {
+            left: [
+                'address',
+                {id: 123}
+            ],
+            right: [
+                'website'
+            ]
+        }
+    }
+]);
+
+        return false;
     }
 }

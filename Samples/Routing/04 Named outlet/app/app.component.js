@@ -13,7 +13,27 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var AppComponent = (function () {
     function AppComponent(router) {
+        this.router = router;
     }
+    AppComponent.prototype.gotoAbout = function () {
+        this.router.navigate([
+            '/about',
+            1,
+            { name: 'xxx' },
+            {
+                outlets: {
+                    left: [
+                        'address',
+                        { id: 123 }
+                    ],
+                    right: [
+                        'website'
+                    ]
+                }
+            }
+        ]);
+        return false;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([

@@ -4,6 +4,7 @@
     <a routerLink="" routerLinkActive="x" queryParamsHandling="preserve">Home</a>
 
     <a [routerLink]="['/about', 1, {name: 'xxx'}, {outlets: {left: ['address', {id: 123}], right: ['website']}}]">About</a>
+    <a href="" (click)="gotoAbout()">Goto About using code</a>
 </div>
 
 <router-outlet></router-outlet>
