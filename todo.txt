@@ -1,4 +1,4 @@
-APP_INITIALIZER
+﻿APP_INITIALIZER
 APP_BOOTSTRAP_LISTENER
 destoryPlatform
 _platform is global - Only one platform at runtime
@@ -18,3 +18,4 @@ Import/export from a module
 Routing - server side fix
 LocationStrategy
 Router events
+Preserve
