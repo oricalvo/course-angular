@@ -48,12 +48,3 @@ export const routes: Routes = [
         ]
     },
 ];
-
-export const routes: Routes = [
-    {
-        path: "",
-        canActivate: [InitAppGuard],
-        children: [
-        ]
-    },
-];

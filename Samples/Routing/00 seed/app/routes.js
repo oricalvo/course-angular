@@ -57,10 +57,3 @@ exports.routes = [
         ]
     },
 ];
-exports.routes = [
-    {
-        path: "",
-        canActivate: [InitAppGuard],
-        children: []
-    },
-];
