@@ -1,0 +1,11 @@
+:host {
+    display: block;
+}
+
+button {
+    background-color: red;
+}
+
+ul li {
+    background-color: blue;
+}

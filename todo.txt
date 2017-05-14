@@ -5,6 +5,9 @@ _platform is global - Only one platform at runtime
 import { ɵgetDOM as getDOM} from '@angular/platform-browser'
 isDevMode
 ngDoBootstrap method inside AppModule
+
+Routing
+--------
 UrlMatcher - Walk and explain all route definition
 TemplateSyntax - attribute binding [attr.colspan]="1+1"
 Named outlet
@@ -19,3 +22,7 @@ Routing - server side fix
 LocationStrategy
 Router events
 Preserve
+
+Advanced Components
+---------------------
+:host(.someClass)
