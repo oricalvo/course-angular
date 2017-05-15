@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background-color: red;
+}
+
+ul li {
+    background-color: blue;
+}
