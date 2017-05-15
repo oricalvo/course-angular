@@ -3,6 +3,10 @@
     flex-direction: row;
 }
 
+:host(.external) {
+    background-color: red;
+}
+
 button {
     background-color: red;
 }

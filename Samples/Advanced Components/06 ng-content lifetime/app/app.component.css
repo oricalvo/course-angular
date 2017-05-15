@@ -1,6 +1,6 @@
 :host {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 button {
@@ -10,8 +10,3 @@ button {
 ul li {
     background-color: blue;
 }
-
-/*my-app {*/
-    /*diaply: flex;*/
-    /*flex-direction: row;*/
-/*}*/
