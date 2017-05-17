@@ -8,10 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var app_component_1 = require("./app.component");
-var contactList_component_1 = require("./contactList.component");
 var platform_browser_1 = require("@angular/platform-browser");
-var dialog_component_1 = require("./dialog.component");
-var contact_component_1 = require("./contact.component");
+var contact_service_1 = require("./contact.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,15 +20,14 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
         ],
-        providers: [],
+        providers: [
+            contact_service_1.ContactService,
+        ],
         bootstrap: [
             app_component_1.AppComponent,
         ],
         declarations: [
             app_component_1.AppComponent,
-            contact_component_1.ContactComponent,
-            contactList_component_1.ContactListComponent,
-            dialog_component_1.DialogComponent,
         ]
     })
 ], AppModule);

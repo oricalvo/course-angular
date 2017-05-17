@@ -1,24 +1,20 @@
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
-import {ContactListComponent} from "./contactList.component";
 import {BrowserModule} from "@angular/platform-browser";
-import {DialogComponent} from "./dialog.component";
-import {ContactComponent} from "./contact.component";
+import {ContactService} from "./contact.service";
 
 @NgModule({
     imports: [
         BrowserModule,
     ],
     providers: [
+        ContactService,
     ],
     bootstrap: [
         AppComponent,
     ],
     declarations: [
         AppComponent,
-        ContactComponent,
-        ContactListComponent,
-        DialogComponent,
     ]
 })
 export class AppModule {
