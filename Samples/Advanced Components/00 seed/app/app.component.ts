@@ -1,7 +1,11 @@
-import {Compiler, Component, HostBinding, NgModule, ViewEncapsulation, ViewContainerRef, ViewChild} from "@angular/core";
+import {
+    Compiler, Component, HostBinding, NgModule, ViewEncapsulation, ViewContainerRef, ViewChild,
+    ElementRef, PlatformRef
+} from "@angular/core";
 import {Router} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {ContactService} from "./contact.service";
+import {BrowserDomAdapter} from "@angular/platform-browser/src/browser/browser_adapter";
 
 @Component({
     selector: "my-app",
@@ -10,53 +14,26 @@ import {ContactService} from "./contact.service";
     moduleId: module.id,
 })
 export class AppComponent {
-    @ViewChild("marker", {read: ViewContainerRef}) marker: ViewContainerRef;
-    counter: number;
+    button;
+    onClickHandler;
 
-    constructor(private compiler: Compiler, private contactService: ContactService) {
-        this.counter = 0;
+    constructor(private elementRef: ElementRef) {
+
+        new BrowserDomAdapter();
+
+        const dom = elementRef.nativeElement;
+
+        this.button = document.createElement("button");
+        this.button.innerText = "Click me";
+        this.onClickHandler = this.onClick.bind(this);
+        this.button.addEventListener("click", this.onClickHandler);
+
+        dom.append(this.button);
     }
 
-    injectTemplate() {
-        const moduleType = this.createComponent("<h1>{{state.counter}}</h1>");
+    onClick() {
+        console.log("clicked", this);
+
+        this.button.removeEventListener("click", this.onClickHandler);
     }
-
-    createComponent(template: string) {
-        const moduleType = this.createModuleWithComponent(template);
-        //const moduleFactory = this.compiler.compileModuleSync(moduleType);
-        const moduleFactory = this.compiler.compileModuleAndAllComponentsSync(moduleType);
-        const componentFactory = moduleFactory.componentFactories[0];
-        const componentRef = this.marker.createComponent(componentFactory);
-
-
-        componentRef.instance.state = this;
-
-        return moduleType;
-    }
-
-    inc() {
-        this.counter++;
-    }
-
-createModuleWithComponent(template: string) {
-    @Component({
-        template: template,
-    })
-    class DynamicComponent {
-        constructor(contactService: ContactService) {
-            console.log(contactService);
-        }
-    }
-
-    @NgModule({
-        imports: [
-            CommonModule
-        ],
-        declarations: [DynamicComponent],
-    })
-    class DynamicModule {
-    }
-
-    return DynamicModule;
-}
 }

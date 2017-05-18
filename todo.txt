@@ -25,9 +25,13 @@ Preserve
 
 Advanced Components
 ---------------------
-:host(.someClass)
 exportAs inside @Component
 ContentChildren
 QueryList
 CheckAlways component under OnPush component
 track by
+
+directives
+----------
+ng-template
+

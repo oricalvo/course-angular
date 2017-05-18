@@ -10,63 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var common_1 = require("@angular/common");
-var contact_service_1 = require("./contact.service");
+var browser_adapter_1 = require("@angular/platform-browser/src/browser/browser_adapter");
 var AppComponent = (function () {
-    function AppComponent(compiler, contactService) {
-        this.compiler = compiler;
-        this.contactService = contactService;
-        this.counter = 0;
+    function AppComponent(elementRef) {
+        this.elementRef = elementRef;
+        new browser_adapter_1.BrowserDomAdapter();
+        var dom = elementRef.nativeElement;
+        this.button = document.createElement("button");
+        this.button.innerText = "Click me";
+        this.onClickHandler = this.onClick.bind(this);
+        this.button.addEventListener("click", this.onClickHandler);
+        dom.append(this.button);
     }
-    AppComponent.prototype.injectTemplate = function () {
-        var moduleType = this.createComponent("<h1>{{state.counter}}</h1>");
-    };
-    AppComponent.prototype.createComponent = function (template) {
-        var moduleType = this.createModuleWithComponent(template);
-        //const moduleFactory = this.compiler.compileModuleSync(moduleType);
-        var moduleFactory = this.compiler.compileModuleAndAllComponentsSync(moduleType);
-        var componentFactory = moduleFactory.componentFactories[0];
-        var componentRef = this.marker.createComponent(componentFactory);
-        componentRef.instance.state = this;
-        return moduleType;
-    };
-    AppComponent.prototype.inc = function () {
-        this.counter++;
-    };
-    AppComponent.prototype.createModuleWithComponent = function (template) {
-        var DynamicComponent = (function () {
-            function DynamicComponent(contactService) {
-                console.log(contactService);
-            }
-            return DynamicComponent;
-        }());
-        DynamicComponent = __decorate([
-            core_1.Component({
-                template: template,
-            }),
-            __metadata("design:paramtypes", [contact_service_1.ContactService])
-        ], DynamicComponent);
-        var DynamicModule = (function () {
-            function DynamicModule() {
-            }
-            return DynamicModule;
-        }());
-        DynamicModule = __decorate([
-            core_1.NgModule({
-                imports: [
-                    common_1.CommonModule
-                ],
-                declarations: [DynamicComponent],
-            })
-        ], DynamicModule);
-        return DynamicModule;
+    AppComponent.prototype.onClick = function () {
+        console.log("clicked", this);
+        this.button.removeEventListener("click", this.onClickHandler);
     };
     return AppComponent;
 }());
-__decorate([
-    core_1.ViewChild("marker", { read: core_1.ViewContainerRef }),
-    __metadata("design:type", core_1.ViewContainerRef)
-], AppComponent.prototype, "marker", void 0);
 AppComponent = __decorate([
     core_1.Component({
         selector: "my-app",
@@ -74,6 +35,6 @@ AppComponent = __decorate([
         styleUrls: ["./app.component.css"],
         moduleId: module.id,
     }),
-    __metadata("design:paramtypes", [core_1.Compiler, contact_service_1.ContactService])
+    __metadata("design:paramtypes", [core_1.ElementRef])
 ], AppComponent);
 exports.AppComponent = AppComponent;
