@@ -16,16 +16,18 @@ export class AppComponent {
         ];
     }
 
-
-    ngDoCheck() {
-        console.log("ngDoCheck");
-    }
-
-    none() {
-    }
-
     change() {
+    }
+
+    add() {
+        //this.contacts.push({id:3, name: "Udi"});
+        //this.contacts[0] = null;
+
         this.contacts[0].name = "XXX";
+    }
+
+    swap() {
+        //const tmp = this.contacts[0];
     }
 }
 

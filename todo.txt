@@ -26,8 +26,8 @@ Preserve
 Advanced Components
 ---------------------
 exportAs inside @Component
-custom pipe
-impure pipe
+ngModelChange
+:host-context
 
 directives
 ----------
@@ -39,3 +39,7 @@ Change detection
 ExpressionChangedAfterItHasBeenCheckedError
 Differs: DefaultIterableDiffer
 CheckAlways component under OnPush component
+
+Profiling
+ng.probe($0)
+Auguary

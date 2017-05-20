@@ -17,13 +17,15 @@ var AppComponent = (function () {
             { "id": 2, "name": "Roni" },
         ];
     }
-    AppComponent.prototype.ngDoCheck = function () {
-        console.log("ngDoCheck");
-    };
-    AppComponent.prototype.none = function () {
-    };
     AppComponent.prototype.change = function () {
+    };
+    AppComponent.prototype.add = function () {
+        //this.contacts.push({id:3, name: "Udi"});
+        //this.contacts[0] = null;
         this.contacts[0].name = "XXX";
+    };
+    AppComponent.prototype.swap = function () {
+        //const tmp = this.contacts[0];
     };
     return AppComponent;
 }());

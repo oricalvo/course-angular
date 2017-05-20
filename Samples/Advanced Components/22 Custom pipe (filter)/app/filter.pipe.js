@@ -7,29 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var app_component_1 = require("./app.component");
-var platform_browser_1 = require("@angular/platform-browser");
-var forms_1 = require("@angular/forms");
-var filter_pipe_1 = require("./filter.pipe");
-var AppModule = (function () {
-    function AppModule() {
+var FilterPipe = (function () {
+    function FilterPipe() {
     }
-    return AppModule;
+    FilterPipe.prototype.transform = function (coll, filterBy) {
+        if (filterBy === undefined) {
+            return coll;
+        }
+        return coll.filter(function (contact) { return contact.name.indexOf(filterBy) != -1; });
+    };
+    return FilterPipe;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            platform_browser_1.BrowserModule,
-            forms_1.FormsModule,
-        ],
-        providers: [],
-        bootstrap: [
-            app_component_1.AppComponent,
-        ],
-        declarations: [
-            app_component_1.AppComponent,
-            filter_pipe_1.FilterPipe
-        ],
-    })
-], AppModule);
-exports.AppModule = AppModule;
+FilterPipe = __decorate([
+    core_1.Pipe({ name: 'filter' })
+], FilterPipe);
+exports.FilterPipe = FilterPipe;
