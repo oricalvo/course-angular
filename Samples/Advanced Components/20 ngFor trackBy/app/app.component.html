@@ -1,0 +1,13 @@
+<div>
+    <button (click)="log()">Log</button>
+    <button (click)="swap()">Swap</button>
+    <button (click)="add()">Add</button>
+    <button (click)="remove()">Remove</button>
+    <button (click)="refresh()">Refresh</button>
+</div>
+
+<ul>
+    <li *ngFor="let contact of contacts; trackBy: trackByFn">
+        <my-contact [contact]="contact"></my-contact>
+    </li>
+</ul>

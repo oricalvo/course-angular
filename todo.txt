@@ -26,12 +26,16 @@ Preserve
 Advanced Components
 ---------------------
 exportAs inside @Component
-ContentChildren
-QueryList
-CheckAlways component under OnPush component
-track by
+custom pipe
+impure pipe
 
 directives
 ----------
 ng-template
+$implicit
 
+Change detection
+------------------
+ExpressionChangedAfterItHasBeenCheckedError
+Differs: DefaultIterableDiffer
+CheckAlways component under OnPush component

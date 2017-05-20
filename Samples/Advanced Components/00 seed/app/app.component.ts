@@ -1,11 +1,4 @@
-import {
-    Compiler, Component, HostBinding, NgModule, ViewEncapsulation, ViewContainerRef, ViewChild,
-    ElementRef, PlatformRef
-} from "@angular/core";
-import {Router} from "@angular/router";
-import {CommonModule} from "@angular/common";
-import {ContactService} from "./contact.service";
-import {BrowserDomAdapter} from "@angular/platform-browser/src/browser/browser_adapter";
+import {Component, ElementRef} from "@angular/core";
 
 @Component({
     selector: "my-app",
@@ -14,26 +7,19 @@ import {BrowserDomAdapter} from "@angular/platform-browser/src/browser/browser_a
     moduleId: module.id,
 })
 export class AppComponent {
-    button;
-    onClickHandler;
+    contacts: Contact[];
 
-    constructor(private elementRef: ElementRef) {
-
-        new BrowserDomAdapter();
-
-        const dom = elementRef.nativeElement;
-
-        this.button = document.createElement("button");
-        this.button.innerText = "Click me";
-        this.onClickHandler = this.onClick.bind(this);
-        this.button.addEventListener("click", this.onClickHandler);
-
-        dom.append(this.button);
-    }
-
-    onClick() {
-        console.log("clicked", this);
-
-        this.button.removeEventListener("click", this.onClickHandler);
+    constructor() {
+        this.contacts = [
+            {"id": 1, "name": "Ori"},
+            {"id": 2, "name": "Roni"},
+        ];
     }
 }
+
+export interface Contact {
+    id: number;
+    name: string;
+}
+
+

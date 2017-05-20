@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let item of items">
+        <my-list-item [item]="item"
+                      [itemToComponentType]="itemToComponentTypeFn">
+        </my-list-item>
+    </li>
+</ul>

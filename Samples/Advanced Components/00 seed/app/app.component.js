@@ -10,22 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var browser_adapter_1 = require("@angular/platform-browser/src/browser/browser_adapter");
 var AppComponent = (function () {
-    function AppComponent(elementRef) {
-        this.elementRef = elementRef;
-        new browser_adapter_1.BrowserDomAdapter();
-        var dom = elementRef.nativeElement;
-        this.button = document.createElement("button");
-        this.button.innerText = "Click me";
-        this.onClickHandler = this.onClick.bind(this);
-        this.button.addEventListener("click", this.onClickHandler);
-        dom.append(this.button);
+    function AppComponent() {
+        this.contacts = [
+            { "id": 1, "name": "Ori" },
+            { "id": 2, "name": "Roni" },
+        ];
     }
-    AppComponent.prototype.onClick = function () {
-        console.log("clicked", this);
-        this.button.removeEventListener("click", this.onClickHandler);
-    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -35,6 +26,6 @@ AppComponent = __decorate([
         styleUrls: ["./app.component.css"],
         moduleId: module.id,
     }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
+    __metadata("design:paramtypes", [])
 ], AppComponent);
 exports.AppComponent = AppComponent;
