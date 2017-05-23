@@ -1,0 +1,7 @@
+:host {
+    display: block;
+    /*background-color: blue;*/
+    background-image: url(image.jpg);
+    height: 20em;
+}
+
