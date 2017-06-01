@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script>
+        let observable = Rx.Observable.interval(1000);
+
+        let observer = {
+            next: value => {console.log(value)}
+        };
+
+        observable
+            .throttleTime(2000)
+            .subscribe(observer);
+    </script>
+</body>
+</html>

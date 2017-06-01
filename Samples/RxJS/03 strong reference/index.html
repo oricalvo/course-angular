@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script>
+        class Tag {
+            constructor(name) {
+                this.name = name;
+            }
+
+            toString() {
+                return "Tag:" + this.name;
+            }
+        }
+
+        const observable = Rx.Observable.create(obs => {
+            let count = 0;
+
+            setInterval(function() {
+                obs.next(count++);
+            }, 1000);
+        });
+        //observable.tag = new Tag("observable");
+
+        (function() {
+            const observer = {
+                next: function (val) {
+                    console.log(val);
+                }
+            };
+
+            observer.next.tag = new Tag("next");
+
+            observable.subscribe(observer);
+        })();
+
+
+    </script>
+</body>
+</html>

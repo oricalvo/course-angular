@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script>
+const [even, odd] = Rx.Observable.from([1,2,3,4,5,6]).partition(x=>x%2==0);
+
+even.subscribe(x=>{console.log(x);});
+odd.subscribe(x=>{console.log(x);});
+    </script>
+</body>
+</html>

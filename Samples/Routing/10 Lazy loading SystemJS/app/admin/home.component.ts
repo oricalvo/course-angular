@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {MainService} from "./main.service";
 
 @Component({
     selector: "my-admin-home",
@@ -7,4 +8,7 @@ import {Component} from "@angular/core";
     moduleId: module.id,
 })
 export class AdminHomeComponent {
+    constructor(mainService: MainService) {
+        console.log("AdminHomeComponent");
+    }
 }

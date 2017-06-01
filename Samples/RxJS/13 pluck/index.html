@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script>
+Rx.Observable.from([
+    {name: "Ori", address: {city: "Rehovot"}},
+    {name: "Roni"},
+])
+.pluck("address", "city")
+.subscribe(x => {
+    console.log(x);
+});
+    </script>
+</body>
+</html>

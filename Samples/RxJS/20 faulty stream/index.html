@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+<script>
+    const obs = Rx.Observable.create(observer => {
+        observer.next(1);
+        observer.next(2);
+
+        setTimeout(function() {
+            //throw new Error("XXX");
+            observer.error(new Error("XXX"));
+            observer.next(3);
+            console.log("After error");
+        }, 1000);
+    });
+
+try {
+obs.subscribe({
+    next: x => {
+        console.log(x);
+    },
+    error: err => {
+        console.error(err);
+    }
+});
+
+    console.log("After subscribe");
+}
+catch (err) {
+    console.error(err);
+}
+</script>
+</body>
+</html>

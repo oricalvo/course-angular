@@ -1,0 +1,14 @@
+<h1>Hello Angular</h1>
+
+<div>
+    <input [(ngModel)]="filterBy">
+    <button (click)="none()">None</button>
+    <button (click)="change()">Change</button>
+</div>
+
+<ul>
+    <li *ngFor="let contact of contacts">
+        <span>{{contact.name}}</span>
+    </li>
+</ul>
+

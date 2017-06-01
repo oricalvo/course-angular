@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script>
+const obs1 = Rx.Observable.interval(1000).mapTo("1000");
+const obs2 = Rx.Observable.interval(2000).mapTo("2000");
+
+obs1.merge(obs2).subscribe(x => {
+    console.log(x);
+});
+    </script>
+</body>
+</html>

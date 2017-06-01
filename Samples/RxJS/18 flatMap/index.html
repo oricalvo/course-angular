@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script>
+const obs = Rx.Observable.from([
+    Rx.Observable.from([1,10,100]),
+    Rx.Observable.from([2,20,200]),
+    Rx.Observable.from([3,30,300]),
+]);
+
+obs.flatMap(x=>x).subscribe(x => {
+    console.log(x);
+});
+    </script>
+</body>
+</html>

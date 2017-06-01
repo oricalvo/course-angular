@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script>
+Rx.Observable.from([1,2,3,4,5,6])
+    .groupBy(num => num%3)
+    .subscribe(group => {
+        group.subscribe(num => {
+            console.log(group.key + ": " + num);
+        });
+    });
+
+//        Rx.Observable.from([1,2,3,4,5,6])
+//            .groupBy(x=>x%3)
+//            .map(group => group.map(x => ({group: group, x: x})))
+//            .flatMap(g=>g)
+//            .subscribe(x => {
+//                console.log(x.group.key + ": " + x.x);
+//            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script>
+        const subject = new Rx.Subject();
+
+        subject.subscribe(val => {
+            console.log(val);
+        });
+
+        subject.next(1);
+
+        subject.subscribe(val => {
+            console.log("X" + val);
+        });
+
+        subject.next(2);
+    </script>
+</body>
+</html>

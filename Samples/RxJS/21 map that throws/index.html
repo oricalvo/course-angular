@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+<script>
+const obs1 = Rx.Observable.interval(500).take(3)
+    .do(x => {
+        if (x == 2) {
+            throw new Error("XXX");
+        }
+    });
+
+const obs2 = obs1.map(x => x * 2);
+
+obs2.subscribe(x => {
+    console.log(x);
+});
+</script>
+</body>
+</html>

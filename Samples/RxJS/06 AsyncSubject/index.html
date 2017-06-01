@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script>
+        let subject = new Rx.AsyncSubject(0);
+
+        //subject = subject.map(x=>x*2);
+
+        subject.subscribe(val => {
+            console.log("A: " + val);
+        });
+        
+        subject.next(1);
+
+        subject.subscribe(val => {
+            console.log("B: " + val);
+        });
+
+        subject.complete();
+    </script>
+</body>
+</html>

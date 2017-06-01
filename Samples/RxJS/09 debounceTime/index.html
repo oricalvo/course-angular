@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script>
+Rx.Observable.interval(500)
+    .do(x => {
+        console.log(x);
+    })
+    .debounceTime(501)
+    .subscribe(x => {
+        console.log("never happens", x);
+    });
+    </script>
+</body>
+</html>

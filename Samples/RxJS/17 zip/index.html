@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script>
+const obs1 = Rx.Observable.interval(500).map(i => "X" + i);
+const obs2 = Rx.Observable.interval(3000).map(i => "Y" + i);
+
+Rx.Observable.zip(obs1,obs2)
+    .subscribe(x => {
+        console.log(x);
+    });
+    </script>
+</body>
+</html>
