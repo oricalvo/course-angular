@@ -1,0 +1,11 @@
+<h1>Contact List</h1>
+
+<div class="buttons">
+    <button (click)="toggle()">Toggle List</button>
+</div>
+
+<my-contact-search></my-contact-search>
+
+<my-contact-list *ngIf="show"></my-contact-list>
+
+<my-status></my-status>
