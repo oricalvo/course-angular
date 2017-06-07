@@ -18,26 +18,33 @@ var RootService = (function () {
         this.contactService = contactService;
         this.selectionService = selectionService;
         this.searchService = searchService;
+        this.state = {
+            showList: true,
+            contacts: contactService.state,
+            selection: selectionService.state,
+            search: searchService.state,
+        };
+        this.onContactsLoaded(this.state.contacts.all);
     }
-    RootService.prototype.init = function () {
-        var all = [
-            { "id": 1, "name": "Ori" },
-            { "id": 2, "name": "Roni" },
-            { "id": 3, "name": "Udi" },
-            { "id": 4, "name": "Tommy" },
-        ];
-        this.contactService.onChanges(all);
-        this.searchService.onChanges(all);
-        this.show = true;
-    };
     RootService.prototype.select = function (contact, selected) {
         this.selectionService.change(contact, selected);
     };
     RootService.prototype.search = function (filter) {
         this.searchService.search(filter);
     };
-    RootService.prototype.toggleList = function () {
-        this.show = !this.show;
+    RootService.prototype.resetSearch = function () {
+        this.searchService.reset();
+    };
+    RootService.prototype.toggle = function () {
+        this.state.showList = !this.state.showList;
+    };
+    RootService.prototype.refresh = function () {
+        this.contactService.refresh();
+        this.onContactsLoaded(this.state.contacts.all);
+    };
+    RootService.prototype.onContactsLoaded = function (all) {
+        this.searchService.onContactsLoaded(all);
+        this.selectionService.onContactsLoaded(all);
     };
     return RootService;
 }());

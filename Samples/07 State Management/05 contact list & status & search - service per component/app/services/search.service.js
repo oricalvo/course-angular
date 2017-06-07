@@ -2,20 +2,27 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SearchService = (function () {
     function SearchService() {
-        this.filtered = [];
-        this.filter = "";
+        this.state = {
+            all: null,
+            filtered: [],
+            filter: "",
+        };
     }
-    SearchService.prototype.onChanges = function (all) {
-        this.all = all;
+    SearchService.prototype.onContactsLoaded = function (all) {
+        this.state.all = all;
         this.apply();
     };
     SearchService.prototype.search = function (filter) {
-        this.filter = filter;
+        this.state.filter = filter;
+        this.apply();
+    };
+    SearchService.prototype.reset = function () {
+        this.state.filter = "";
         this.apply();
     };
     SearchService.prototype.apply = function () {
-        var filter = this.filter.toLowerCase();
-        this.filtered = this.all.filter(function (c) { return c.name.toLowerCase().indexOf(filter) != -1; });
+        var filter = this.state.filter.toLowerCase();
+        this.state.filtered = this.state.all.filter(function (c) { return c.name.toLowerCase().indexOf(filter) != -1; });
     };
     return SearchService;
 }());

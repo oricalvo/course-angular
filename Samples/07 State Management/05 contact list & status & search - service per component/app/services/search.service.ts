@@ -1,29 +1,42 @@
 import {Contact} from "./contact.service";
 
-export class SearchService {
+export interface SearchState {
     all: Contact[];
     filtered: Contact[];
     filter: string;
+}
+
+export class SearchService {
+    state: SearchState;
 
     constructor() {
-        this.filtered = [];
-        this.filter = "";
+        this.state = {
+            all: null,
+            filtered: [],
+            filter: "",
+        };
     }
 
-    onChanges(all: Contact[]) {
-        this.all = all;
+    onContactsLoaded(all: Contact[]) {
+        this.state.all = all;
 
         this.apply();
     }
 
     search(filter: string) {
-        this.filter = filter;
+        this.state.filter = filter;
+
+        this.apply();
+    }
+
+    reset() {
+        this.state.filter = "";
 
         this.apply();
     }
 
     private apply() {
-        const filter = this.filter.toLowerCase();
-        this.filtered = this.all.filter(c => c.name.toLowerCase().indexOf(filter)!=-1);
+        const filter = this.state.filter.toLowerCase();
+        this.state.filtered = this.state.all.filter(c => c.name.toLowerCase().indexOf(filter)!=-1);
     }
 }

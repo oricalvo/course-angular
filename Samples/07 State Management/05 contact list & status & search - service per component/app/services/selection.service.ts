@@ -1,20 +1,45 @@
-export class SelectionService {
+import {Contact} from "./contact.service";
+
+export interface SelectionState {
     selectedCount: number;
+    totalCount: number;
+    selected: Set<Contact>;
+    all: Contact[];
+}
+
+export class SelectionService {
+    state: SelectionState;
 
     constructor() {
-        this.selectedCount = 0;
+        this.state = new class {
+            all = null;
+
+            get selectedCount() {
+                return this.selected.size;
+            }
+
+            get totalCount() {
+                return this.all.length;
+            }
+
+            selected = new Set<Contact>();
+        }
     }
 
-    change(contact, selected) {
-        if(contact.selected == selected) {
-            return;
-        }
+    onContactsLoaded(all: Contact[]) {
+        this.state.all = all;
+    }
 
-        if(contact.selected = selected) {
-            ++this.selectedCount;
+    change(contact: Contact, selected: boolean) {
+        if(selected) {
+            this.state.selected.add(contact);
         }
         else {
-            --this.selectedCount;
+            this.state.selected.delete(contact);
         }
+    }
+
+    isSelected(contact: Contact) {
+        return this.state.selected.has(contact);
     }
 }
