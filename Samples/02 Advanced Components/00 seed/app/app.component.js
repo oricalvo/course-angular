@@ -17,14 +17,6 @@ var AppComponent = (function () {
             { "id": 2, "name": "Roni" },
         ];
     }
-    AppComponent.prototype.ngDoCheck = function () {
-        console.log("ngDoCheck");
-    };
-    AppComponent.prototype.none = function () {
-    };
-    AppComponent.prototype.change = function () {
-        this.contacts[0].name = "XXX";
-    };
     return AppComponent;
 }());
 AppComponent = __decorate([

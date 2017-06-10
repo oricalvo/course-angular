@@ -6,23 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var FilterPipe = (function () {
-    function FilterPipe() {
+var mobx_1 = require("mobx");
+var Todo = (function () {
+    function Todo() {
+        this.id = Math.random();
+        this.title = "";
+        this.finished = false;
     }
-    FilterPipe.prototype.transform = function (coll, filterBy) {
-        if (filterBy === undefined) {
-            return coll;
-        }
-        console.log("transform");
-        return coll.filter(function (contact) { return contact.name.indexOf(filterBy) != -1; });
-    };
-    return FilterPipe;
+    return Todo;
 }());
-FilterPipe = __decorate([
-    core_1.Pipe({
-        name: 'filter',
-        pure: false
-    })
-], FilterPipe);
-exports.FilterPipe = FilterPipe;
+__decorate([
+    mobx_1.observable
+], Todo.prototype, "title", void 0);
+__decorate([
+    mobx_1.observable
+], Todo.prototype, "finished", void 0);
+//# sourceMappingURL=main.js.map

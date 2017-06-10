@@ -15,18 +15,6 @@ export class AppComponent {
             {"id": 2, "name": "Roni"},
         ];
     }
-
-
-    ngDoCheck() {
-        console.log("ngDoCheck");
-    }
-
-    none() {
-    }
-
-    change() {
-        this.contacts[0].name = "XXX";
-    }
 }
 
 export interface Contact {

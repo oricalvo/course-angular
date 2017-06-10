@@ -1,8 +1,7 @@
 node_modules
-.idea
-main.js
-main.js.map
-app/**/*.js
-app/**/*.js.map
-build/**/*.js
-build/**/*.js.map
+**/app/*.js
+**/app/*.js.map
+**/build/*.js
+**/build/*.js.map
+**/server/*.js
+**/server/*.js.map
