@@ -1,0 +1,23 @@
+<h1>Hello Angular</h1>
+
+<ul>
+  <li *ngFor="let contact of contacts">
+    <span>{{contact.name}}</span>
+  </li>
+</ul>
+
+<form #form="ngForm">
+  <input [(ngModel)]="name" name="name" #nameNgModel="ngModel" required maxlength="5">
+
+  <button type="submit" (click)="add()">Add</button>
+
+  <div *ngIf="nameNgModel.errors && (nameNgModel.dirty || nameNgModel.touched)">
+  <span class="validation-message" *ngIf="nameNgModel.errors.required">
+    Name is required
+  </span>
+
+    <span class="validation-message" *ngIf="nameNgModel.errors.maxlength">
+    Too long
+  </span>
+  </div>
+</form>
